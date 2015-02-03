@@ -18,6 +18,7 @@ class RichTextField(models.TextField):
 
 class RichTextFormField(forms.fields.Field):
     def __init__(self, *args, **kwargs):
+        del(kwargs['max_length'])
         kwargs.update({'widget': CKEditorWidget()})
         super(RichTextFormField, self).__init__(*args, **kwargs)
 
